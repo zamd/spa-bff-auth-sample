@@ -9,4 +9,4 @@
 
 
 - Regular website follows a similar model where they include an additional credential (csrfToken) along with automatic credentials (cookie) to ensure that it's the real user making the request. 
-# spa-bff-auth-sample
+
