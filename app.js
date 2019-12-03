@@ -1,3 +1,6 @@
+
+require('dotenv').config()
+
 const express = require('express');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -15,16 +18,16 @@ passport.serializeUser( (user, done)=> done(null,user));
 passport.deserializeUser( (user, done)=> done(null,user));
 
 var app = express();
-app.use(session({secret: "shhhh", resave: false, saveUninitialized: false }));
+app.use(session({secret: process.env.SESSION_SECRET, resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 
 const auth0 = new Auth0Startegy({
-  domain: "fourzero.auth0.com",
-  clientID: "zcaSURjejBMjujgriCtnrkgb93vhJ30x",
-  clientSecret:"guVTAgmef4wWn7Ha50u6GgJgQKPN9MH9ILFi9cIYJJn8b6q8DlD8g8UNiUZzgt2H",
-  callbackURL: "http://bff.myspa.com/callback",
+  domain: process.env.AUTH0_DOMAIN,
+  clientID: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL,
   scope: "openid email profile offline_access",
   passReqToCallback: true
 
