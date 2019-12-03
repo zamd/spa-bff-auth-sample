@@ -1,4 +1,4 @@
-# spa-backend-auth-sample
+# spa-bff-auth-sample
 
 - Cookies are a type of `automatically submitted credentials` and needs speical care in a SPA architecture
 - At minimum, the backend API must be locked down to only allow it's access via XHR. This can be done by checking for a custom header like `csrf` with an expected value `auth0-spa`. Only requests including this custom header (and possibly content-type: `application/json`) should be able to call backend APIs. 
@@ -9,4 +9,15 @@
 
 
 - Regular website follows a similar model where they include an additional credential (csrfToken) along with automatic credentials (cookie) to ensure that it's the real user making the request. 
+
+
+# How to Run
+
+The sample uses [hiproxy](http://hiproxy.org/) and it needs to be configured in the browser... 
+
+- npm install -g parcel-bundler
+- git clone https://github.com/zamd/spa-bff-auth-sample.git
+- cd spa-bff-auth-sample
+- npm install 
+- npm start
 
