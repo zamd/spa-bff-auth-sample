@@ -45,6 +45,36 @@ class Auth0Client {
 }
 
 
+
+class ApiClient {
+  constructor(options) {
+    this.options = options;
+  }
+  async addToCart() {
+    const url = `${this.options.baseUrl}/api/cart/`;
+    const json = JSON.stringify({ name: 'iphone', price: 900});
+    try {
+      const csrfToken = getCookie("XSRF-TOKEN");
+      const res = await fetch(url, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          "Content-Type": 'application/json',
+          "x-xsrf-token": csrfToken
+        },
+        body: json
+      });
+      if (res.status == 200)
+        return await res.json();
+      return null;
+    }
+    catch (err) {
+      console.log(err);
+      return null;
+    }
+  }
+}
+
 const getCookie = cname => {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -81,6 +111,15 @@ const login = async (targetUrl) => {
     console.log("Log in failed", err);
   }
 };
+
+const addToCart = async () => {
+  const apiClient = new ApiClient({
+    baseUrl: "http://bff.myspa.com"
+  });
+
+  const r = await apiClient.addToCart();
+  console.log(r);
+}
 
 async function createAuth0Client() {
   console.log('creating a0');

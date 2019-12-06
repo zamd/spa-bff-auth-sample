@@ -6,7 +6,7 @@ const corsPolicy = cors({
     credentials: true,
     preflightContinue: false,
     optionsSuccessStatus: 204,
-    allowedHeaders: ['x-xsrf-token']
+    allowedHeaders: ['x-xsrf-token','content-type']
 });
 
 function configureApp(app) {

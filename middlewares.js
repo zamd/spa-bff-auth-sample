@@ -1,7 +1,4 @@
-
 const url = require('url');
-
-
 function saveState(req, res, next) {
     if (req.query && req.query.state) {
         req.session['returnState'] = req.query.state;
@@ -16,6 +13,5 @@ function switchToSpa(req, res, next) {
     res.cookie('XSRF-TOKEN', req.csrfToken(), { httpOnly: false, domain: url.parse(process.env.SPA_DOMAIN).host })
     res.redirect(spaUrl);
 }
-
 
 module.exports = { saveState, switchToSpa };
