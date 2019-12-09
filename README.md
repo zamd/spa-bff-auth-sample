@@ -1,14 +1,10 @@
 # SPA-BFF Auth Sample
 
-- Cookies are a type of `automatically submitted credentials` and needs speical care in a SPA architecture
-- At minimum, the backend API must be locked down to only allow it's access via XHR. This can be done by checking for a custom header like `x-xsrf-token` with an expected value `#anti-forgery token`. Only requests including this custom header (and possibly content-type: `application/json`) should be able to call backend APIs. 
-- Browser form POST won't be able to add custom headers and won't be able to execute API endpoints with `automatic credentials`
-- This custom header approach along with a white-listed CORS origin should protect SPA endpoints from CSRF
-- This is similar to `Authorization Bearer ey.....` model where access_token would be included as an `explicit credential`
+This samples demonstrate using SPA with a backend component (BFF) for implementing OAuth/OIDC based authentication and API authorization. The samples demonstrate keeping access_token/refresh_token in a server side cache and uses standard cookie auth between browser and the web-server. 
 
+Cookies are a type of `automatically submitted credentials` and needs speical care in a SPA architecture to mitigate against CSRF attacks. At minimum, the backend API must be locked down to only allow it's access via XHR. This can be done by checking for a custom header like `x-xsrf-token` with an expected value `#anti-forgery token`. Only requests including this custom header (and possibly content-type: `application/json`) should be able to call backend APIs. 
 
-
-- Regular website follows a similar model where they include an additional credential (csrfToken) along with automatic credentials (cookie) to ensure that it's the real user making the request. 
+The sample uses node `http-proxy` package to automatically attach access_token to outgoing API calls after succesfully validating cookie and CSRF token. 
 
 
 # Authentication Flow
