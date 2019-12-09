@@ -5,7 +5,7 @@ const router = express.Router();
 const csrf = require('csurf');
 
 const proxy = httpProxy.createProxyServer({
-    target: "http://localhost:5005/api"
+    target: process.env.TARGET_API
 });
 
 proxy.on('proxyReq', (proxyReq, req, res)=>{

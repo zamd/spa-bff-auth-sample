@@ -1,0 +1,23 @@
+{
+  "name": "apiserver",
+  "version": "1.0.0",
+  "description": "The purpose of this article is to demonstrate how to call a backend API using an access token",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "dotenv": "8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "jwks-rsa": "^1.6.0",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "scripts": {
+    "start": "node bin/www",
+    "dev": "nodemon bin/www"
+  },
+  "author": "",
+  "license": "MIT"
+}
