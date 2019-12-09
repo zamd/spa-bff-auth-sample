@@ -11,6 +11,10 @@
 - Regular website follows a similar model where they include an additional credential (csrfToken) along with automatic credentials (cookie) to ensure that it's the real user making the request. 
 
 
+# Authentication Flow
+
+![Sequence Diagram](https://user-images.githubusercontent.com/1377205/70440998-4824de80-1ab5-11ea-8e0b-a0340b144f37.png)
+
 # How to Run
 
 The sample uses [hiproxy](http://hiproxy.org/) which needs to be installed and configured in the browser... 
