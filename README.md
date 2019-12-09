@@ -45,9 +45,15 @@ Rename `.env.sample` file to `.env` and add you Auth0 settings
 - cd spa-bff-auth-sample
 - hiproxy start
 
+![Running](https://user-images.githubusercontent.com/1377205/70440576-4d355e00-1ab4-11ea-8131-ae48df2759d8.png)
+
 - Open the browser and configure HTTP Proxy as:
+
+![http-proxy setup](https://user-images.githubusercontent.com/1377205/70440490-237c3700-1ab4-11ea-8843-e954e885abae.png)
+
 
 - Now browse the app as `myspa.com'
 
+![SPA-BFF](https://user-images.githubusercontent.com/1377205/70440729-a7362380-1ab4-11ea-828a-1a0c9fd2ad07.png)
 
 
