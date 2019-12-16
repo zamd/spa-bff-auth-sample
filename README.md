@@ -21,7 +21,8 @@ The sample uses [hiproxy](http://hiproxy.org/) which needs to be installed and c
 - Open 4 terminal windows to run "proxy", "bff server", "spa server" and "api server"
 
 ### "bff server"
-Rename `.env.sample` file to `.env` and add you Auth0 settings
+Rename `.env.sample` file to `.env` and add you Auth0 settings.
+Add `http://bff.myspa.com/callback` as "Allowed Callback URLs" in your Auth0 client settings
 - cd spa-bff-auth-sample
 - npm install
 - npm start

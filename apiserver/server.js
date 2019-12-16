@@ -35,6 +35,7 @@ app.get("/api/cart", checkJwt, (req, res) => {
 
 app.post("/api/cart", checkJwt, (req, res) => {
   console.log(req.user);
+    //TODO: input validation (sample code only)
   items.push(req.body);
   res.json({
     msg: "Item successfully added"

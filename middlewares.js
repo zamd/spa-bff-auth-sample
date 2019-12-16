@@ -10,6 +10,7 @@ function switchToSpa(req, res, next) {
     //atob
     restoreState = state => new Buffer(state, "base64").toString("ascii");
     const spaUrl = restoreState(req.session.returnState);
+    //WARN: Secure:false for testing only. The flag must be set to "True" when moved to HTTPs
     res.cookie('XSRF-TOKEN', req.csrfToken(), { httpOnly: false, domain: url.parse(process.env.SPA_DOMAIN).host })
     res.redirect(spaUrl);
 }
